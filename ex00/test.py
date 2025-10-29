@@ -99,6 +99,19 @@ class Ex00OutputTest(unittest.TestCase):
         # Given
         # Redirects the output into a variable
         captured_output = StringIO()
+        expected = (
+            "mean : 95.6\n"
+            "median : 42\n"
+            "quartile : [11, 64]\n"
+            "-----\n"
+            "std : 17982.70124086944\n"
+            "var : 323377543.9183673\n"
+            "-----\n"
+            "-----\n"
+            "ERROR\n"
+            "ERROR\n"
+            "ERROR"
+        )
 
         # When
         with redirect_stdout(captured_output):
@@ -119,20 +132,6 @@ class Ex00OutputTest(unittest.TestCase):
             print("-----")
             ft_statistics(toto="mean", tutu="median", tata="quartile")
         actual = captured_output.getvalue().strip()
-
-        expected = (
-            "mean : 95.6\n"
-            "median : 42\n"
-            "quartile : [11, 64]\n"
-            "-----\n"
-            "std : 17982.70124086944\n"
-            "var : 323377543.9183673\n"
-            "-----\n"
-            "-----\n"
-            "ERROR\n"
-            "ERROR\n"
-            "ERROR"
-        )
 
         # Then
         self.assertEqual(actual, expected)
