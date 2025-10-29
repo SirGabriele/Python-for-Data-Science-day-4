@@ -28,6 +28,15 @@ class Ex01OutputTest(unittest.TestCase):
         # Given
         # Redirects the output into a variable
         captured_output = StringIO()
+        expected = (
+            "9\n"
+            "81\n"
+            "6561\n"
+            "---\n"
+            "1.8371173070873836\n"
+            "3.056683336818703\n"
+            "30.42684786675409"
+        )
 
         # When
         with redirect_stdout(captured_output):
@@ -41,16 +50,6 @@ class Ex01OutputTest(unittest.TestCase):
             print(another_counter())
             print(another_counter())
         actual = captured_output.getvalue().strip()
-
-        expected = (
-            "9\n"
-            "81\n"
-            "6561\n"
-            "---\n"
-            "1.8371173070873836\n"
-            "3.056683336818703\n"
-            "30.42684786675409"
-        )
 
         # Then
         self.assertEqual(actual, expected)
