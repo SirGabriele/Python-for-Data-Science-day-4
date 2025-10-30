@@ -29,6 +29,7 @@ def outer(x: int | float, function) -> object:
     value = x
 
     def inner():
+        """Function that returns the result of the bound function."""
         nonlocal value
         value = function(value)
         return value
